@@ -1,0 +1,70 @@
+<h3>Search Active Tasks</h3>
+
+<div class="input-group">
+              <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+              </span>
+    <input type="text" class="form-control" ng-model="searchInput">
+</div>
+
+<div class="clearfix"></div><br/>
+
+<h3 class="pull-left">Active Tasks</h3>
+
+<label class="pull-right">Sort by:
+    <select class="form-control pull-right" ng-model="order"
+            ng-options="order as order.title for order in sort">
+
+    </select>
+</label>
+
+<div class="clearfix"></div><br/>
+
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="task in tasks |
+                                                        filter:searchInput | orderBy:order.key:order.reverse">
+
+        <div class="checkbox"><input type="checkbox" ng-model="task.done" ng-change="task.dirty=task.done"></div>
+        <span class="glyphicon glyphicon-flag" ng-if="task.flagged"></span>
+        <span class="done-true" ng-if="task.done"> {{task.title}} </span>
+        <span ng-if="!task.done"> {{task.title}} </span>
+        <span class="label label-danger label-as-badge pull-right" ng-if="task.priority.id==1">{{task.priority.title}}</span>
+        <span class="label label-warning label-as-badge pull-right" ng-if="task.priority.id==2">{{task.priority.title}}</span>
+        <span class="label label-primary label-as-badge pull-right" ng-if="task.priority.id==3">{{task.priority.title}}</span>
+
+    </li>
+</ul>
+
+<div class="pull-right">
+    <button class="btn btn-success" ng-click="flush()">
+        <span class="glyphicon glyphicon-plus-sign"></span> Save</button>
+</div>
+
+<div class="clearfix"></div><br/>
+
+<h3>Add Task</h3>
+
+<form name="addForm" class="form" ng-submit="addTask()">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" ng-model="new.title" required />
+    </div>
+    <div class="form-group">
+        <label>Priority</label>
+        <!--input type="number" min="1900" max="2030" class="form-control" ng-model="new.year" required /-->
+        <select class="form-control" ng-model="new.priority"
+                ng-options="priority as priority.title for priority in priority">
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <label>Flag:
+                <input type="checkbox" ng-model="new.flagged" />
+            </label>
+        </div>
+        <div class="col-xs-6">
+            <button class="btn btn-success pull-right">
+                <span class="glyphicon glyphicon-plus-sign"></span> Add</button>
+        </div>
+    </div>
+</form>

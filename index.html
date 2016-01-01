@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Task List App</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body ng-app="app">
+
+        <!-- HEADER AND NAVBAR -->
+
+        <header ng-controller="HeaderController">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#/">Silly Task List App</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav">
+                            <li ng-class="{ active: isActive('/active')}"><a href="#/active">Active Tasks <span class="sr-only">(current)</span></a></li>
+                            <li ng-class="{ active: isActive('/historic')}"><a href="#/historic">Historic Tasks <span class="sr-only">(current)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+
+        <div class="col-sm-8 col-sm-offset-2" ng-view></div>
+
+        <footer>
+            <div class="footer navbar-fixed-bottom">
+                <hr/>
+                <p class="text-muted">Copyright © 2016 Silly Task List App</p>
+            </div>
+        </footer>
+
+    </body>
+
+    <!-- DEPENDENCIES -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script src="js/header.ctrl.js"></script>
+    <script src="js/active.ctrl.js"></script>
+    <script src="js/historic.ctrl.js"></script>
+    <script src="js/task.svc.js"></script>
+
+</html>

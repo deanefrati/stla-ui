@@ -1,0 +1,16 @@
+body {
+    margin-top: 70px;
+}
+
+.label-as-badge {
+    border-radius: 1em;
+}
+
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.footer {
+    text-align: center;
+}
