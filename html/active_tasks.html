@@ -26,8 +26,10 @@
 
         <div class="checkbox"><input type="checkbox" ng-model="task.done" ng-change="task.dirty=task.done"></div>
         <span class="glyphicon glyphicon-flag" ng-if="task.flagged"></span>
-        <span class="done-true" ng-if="task.done"> {{task.title}} </span>
-        <span ng-if="!task.done"> {{task.title}} </span>
+
+        <span ng-class="{ 'done-true': task.done }"><a href="#/task/{{task.id}}">{{task.title}}</a></span>
+
+
         <span class="label label-danger label-as-badge pull-right" ng-if="task.priority.id==1">{{task.priority.title}}</span>
         <span class="label label-warning label-as-badge pull-right" ng-if="task.priority.id==2">{{task.priority.title}}</span>
         <span class="label label-primary label-as-badge pull-right" ng-if="task.priority.id==3">{{task.priority.title}}</span>

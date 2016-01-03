@@ -10,61 +10,59 @@ app.factory('TaskService', function(){
 
     factory.priority = [{
         id: 1,
-        title: 'High',
+        title: 'High'
     },{
         id: 2,
-        title: 'Medium',
+        title: 'Medium'
     },{
         id: 3,
-        title: 'Low',
+        title: 'Low'
     }];
 
     factory.tasks = [{
+        id: 1,
         title: 'Pick up groceries',
         priority: factory.priority[0],
-        flagged: true,
+        flagged: false,
         done: false,
-        dirty: false,
+        dirty: false
     }, {
-        title: 'Buy new iPhone',
+        id: 2,
+        title: 'Drop off clothes at dry cleaners',
         priority: factory.priority[2],
         flagged: false,
         done: false,
-        dirty: false,
+        dirty: false
     }, {
-        title: 'Take cloths to dry cleaners',
-        priority: factory.priority[2],
-        flagged: true,
-        done: false,
-        dirty: false,
-    }, {
-        title: 'Set alarm to 6am',
+        id: 3,
+        title: 'Set alarm for 6am',
         priority: factory.priority[1],
-        flagged: true,
+        flagged: false,
         done: false,
-        dirty: false,
+        dirty: false
     }, {
+        id: 4,
         title: 'Take son to practice',
         priority: factory.priority[0],
-        flagged: false,
+        flagged: true,
         done: false,
-        dirty: false,
+        dirty: false
     }];
 
     factory.getPriorities = function(){
         return factory.priority
-    }
+    };
 
     factory.getAllActive = function(){
         var active = [];
         for (var i=0; i<factory.tasks.length; i++){
             var task = factory.tasks[i];
             if (!task.done || (task.done && task.dirty)){
-                active.push(task)
+                active.push(task);
             }
         }
         return active;
-    }
+    };
 
     factory.getAllHistoric = function(){
         var historic = [];
@@ -75,11 +73,20 @@ app.factory('TaskService', function(){
             }
         }
         return historic;
-    }
+    };
+
+    factory.getTask = function(id){
+        for (var i=0; i<factory.tasks.length; i++){
+            var task = factory.tasks[i];
+            if (task.id==id) {
+                return task;
+            }
+        }
+    };
 
     factory.addTask = function(task){
         factory.tasks.push(task);
-    }
+    };
 
     return factory;
 });

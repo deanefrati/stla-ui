@@ -5,7 +5,7 @@
 var app = angular.module('app');
 
 app.controller('HistoricTasksController', function($scope, TaskService) {
-    $scope.searchInput;
+    $scope.searchInput = "";
     $scope.tasks = TaskService.getAllHistoric();
     $scope.priority = TaskService.getPriorities();
 

@@ -24,7 +24,8 @@
     <li class="list-group-item" ng-repeat="task in tasks |
                                                         filter:searchInput | orderBy:order.key:order.reverse">
 
-        <span class="glyphicon glyphicon-flag" ng-if="task.flagged"></span> {{task.title}}
+        <span class="glyphicon glyphicon-flag" ng-if="task.flagged"></span>
+        <a href="#/task/{{task.id}}">{{task.title}}</a>
         <span class="label label-danger label-as-badge pull-right" ng-if="task.priority.id==1">{{task.priority.title}}</span>
         <span class="label label-warning label-as-badge pull-right" ng-if="task.priority.id==2">{{task.priority.title}}</span>
         <span class="label label-primary label-as-badge pull-right" ng-if="task.priority.id==3">{{task.priority.title}}</span>

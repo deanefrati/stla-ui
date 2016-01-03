@@ -2,6 +2,11 @@ body {
     margin-top: 70px;
 }
 
+a {
+    color:inherit;
+    text-decoration: none;
+}
+
 .label-as-badge {
     border-radius: 1em;
 }
@@ -13,4 +18,12 @@ body {
 
 .footer {
     text-align: center;
+}
+
+.member {
+    padding: 5px;
+}
+
+.btn {
+    margin: 2px;
 }

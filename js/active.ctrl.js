@@ -5,7 +5,7 @@
 var app = angular.module('app');
 
 app.controller('ActiveTasksController', function($scope, TaskService) {
-    $scope.searchInput;
+    $scope.searchInput = "";
     $scope.tasks = TaskService.getAllActive();
     $scope.priority = TaskService.getPriorities();
 
@@ -44,7 +44,7 @@ app.controller('ActiveTasksController', function($scope, TaskService) {
     $scope.flush = function(){
         var count=0;
         for (var i=0; i<$scope.tasks.length; i++){
-            task = $scope.tasks[i];
+            var task = $scope.tasks[i];
             if (task.dirty){
                 task.dirty=false;
                 count++
@@ -53,5 +53,5 @@ app.controller('ActiveTasksController', function($scope, TaskService) {
         if (count>0){
             $scope.tasks = TaskService.getAllActive();
         }
-    }
+    };
 });

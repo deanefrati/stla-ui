@@ -15,8 +15,11 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'html/historic_tasks.html',
             controller: 'HistoricTasksController'
         }).
+        when('/task/:id', {
+            templateUrl: 'html/task.html',
+            controller: 'SingleTasksController'
+        }).
         otherwise({
             redirectTo: '/active'
         });
-
 }]);

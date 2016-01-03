@@ -1,33 +1,116 @@
-<h3>Search Historic Tasks</h3>
+<h2>{{task.title}}</h2>
+<br/>
 
-<div class="input-group">
-              <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-search"></span>
-              </span>
-    <input type="text" class="form-control" ng-model="searchInput">
+<div class="col-lg-8">
+    <h4>Details</h4>
+    <hr/>
+    <div class="col-lg-3">
+        <table class="table">
+            <tr>
+                <td class="label-warning">Priority</td>
+                <td>{{task.priority.title}}</td>
+            </tr>
+            <tr>
+                <td class="label-warning">Status</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td class="label-warning">Created</td>
+                <td>1/1/2016</td>
+            </tr>
+            <tr>
+                <td class="label-warning">Due by</td>
+                <td>1/31/2016</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-lg-9">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dui augue, porttitor in arcu in, vehicula
+            aliquet magna. Mauris ante risus, cursus et urna nec, vehicula iaculis enim. Ut sed eros leo. Quisque
+            feugiat consectetur risus, quis pretium lorem rhoncus vitae. Phasellus vitae sagittis mi, a ullamcorper
+            enim. Integer eget massa ac ex consequat cursus suscipit sed sem. Nam suscipit, sapien ac bibendum cursus,
+            nulla urna lobortis ex, eu tempor magna diam vitae sem. Ut at mollis arcu.
+        </p>
+    </div>
 </div>
 
-<div class="clearfix"></div><br/>
+<div class="col-lg-4">
+    <h4>Members</h4>
+    <hr/>
+    <ul class="list-unstyled">
+        <li class="member text-muted"><img src="./images/panda.png" /> Po</li>
+        <li class="member text-muted"><img src="./images/master.png" /> Shifu</li>
+    </ul>
+    <div class="clearfix"></div>
+    <h4>Actions</h4>
+    <hr/>
+        <button class="btn btn-success">
+            <span class="glyphicon glyphicon-plus-sign"></span> Add Comment</button>
 
-<h3 class="pull-left">Historic Tasks</h3>
+        <button class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove-sign"></span> Close Task</button>
+    
+</div>
 
-<label class="pull-right">Sort by:
-    <select class="form-control pull-right" ng-model="order"
-            ng-options="order as order.title for order in sort">
-
-    </select>
-</label>
-
-<div class="clearfix"></div><br/>
-
-<ul class="list-group">
-    <li class="list-group-item" ng-repeat="task in tasks |
-                                                        filter:searchInput | orderBy:order.key:order.reverse">
-
-        <span class="glyphicon glyphicon-flag" ng-if="task.flagged"></span> {{task.title}}
-        <span class="label label-danger label-as-badge pull-right" ng-if="task.priority.id==1">{{task.priority.title}}</span>
-        <span class="label label-warning label-as-badge pull-right" ng-if="task.priority.id==2">{{task.priority.title}}</span>
-        <span class="label label-primary label-as-badge pull-right" ng-if="task.priority.id==3">{{task.priority.title}}</span>
-
-    </li>
-</ul>
+<div class="col-sm-12">
+    <h4>Comments</h4>
+    <hr/>
+    <div class="well">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="./images/panda.png">
+                </a>
+            </div>
+            <div class="media-body">
+                <span class="media-heading label label-default">Posted on 1/1/2016</span>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dui augue, porttitor in arcu in, vehicula
+                    aliquet magna. Mauris ante risus, cursus et urna nec, vehicula iaculis enim. Ut sed eros leo. Quisque
+                    feugiat consectetur risus, quis pretium lorem rhoncus vitae. Phasellus vitae sagittis mi, a ullamcorper
+                    enim. Integer eget massa ac ex consequat cursus suscipit sed sem. Nam suscipit, sapien ac bibendum cursus,
+                    nulla urna lobortis ex, eu tempor magna diam vitae sem. Ut at mollis arcu.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="well">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="./images/master.png">
+                </a>
+            </div>
+            <div class="media-body">
+                <span class="media-heading label label-default">Posted on 1/1/2016</span>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dui augue, porttitor in arcu in, vehicula
+                    aliquet magna. Mauris ante risus, cursus et urna nec, vehicula iaculis enim. Ut sed eros leo. Quisque
+                    feugiat consectetur risus, quis pretium lorem rhoncus vitae. Phasellus vitae sagittis mi, a ullamcorper
+                    enim. Integer eget massa ac ex consequat cursus suscipit sed sem. Nam suscipit, sapien ac bibendum cursus,
+                    nulla urna lobortis ex, eu tempor magna diam vitae sem. Ut at mollis arcu.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="well">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="./images/panda.png">
+                </a>
+            </div>
+            <div class="media-body">
+                <span class="media-heading label label-default">Posted on 1/1/2016</span>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dui augue, porttitor in arcu in, vehicula
+                    aliquet magna. Mauris ante risus, cursus et urna nec, vehicula iaculis enim. Ut sed eros leo. Quisque
+                    feugiat consectetur risus, quis pretium lorem rhoncus vitae. Phasellus vitae sagittis mi, a ullamcorper
+                    enim. Integer eget massa ac ex consequat cursus suscipit sed sem. Nam suscipit, sapien ac bibendum cursus,
+                    nulla urna lobortis ex, eu tempor magna diam vitae sem. Ut at mollis arcu.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
