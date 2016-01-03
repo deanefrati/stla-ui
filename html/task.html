@@ -1,0 +1,33 @@
+<h3>Search Historic Tasks</h3>
+
+<div class="input-group">
+              <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+              </span>
+    <input type="text" class="form-control" ng-model="searchInput">
+</div>
+
+<div class="clearfix"></div><br/>
+
+<h3 class="pull-left">Historic Tasks</h3>
+
+<label class="pull-right">Sort by:
+    <select class="form-control pull-right" ng-model="order"
+            ng-options="order as order.title for order in sort">
+
+    </select>
+</label>
+
+<div class="clearfix"></div><br/>
+
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="task in tasks |
+                                                        filter:searchInput | orderBy:order.key:order.reverse">
+
+        <span class="glyphicon glyphicon-flag" ng-if="task.flagged"></span> {{task.title}}
+        <span class="label label-danger label-as-badge pull-right" ng-if="task.priority.id==1">{{task.priority.title}}</span>
+        <span class="label label-warning label-as-badge pull-right" ng-if="task.priority.id==2">{{task.priority.title}}</span>
+        <span class="label label-primary label-as-badge pull-right" ng-if="task.priority.id==3">{{task.priority.title}}</span>
+
+    </li>
+</ul>
