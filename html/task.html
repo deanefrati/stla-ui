@@ -1,10 +1,10 @@
 <h2>{{task.title}}</h2>
 <br/>
 
-<div class="col-lg-8">
+<div class="container col-md-8">
     <h4>Details</h4>
     <hr/>
-    <div class="col-lg-3">
+    <div class="col-md-4">
         <table class="table">
             <tr>
                 <td class="label-warning">Priority</td>
@@ -12,7 +12,7 @@
             </tr>
             <tr>
                 <td class="label-warning">Status</td>
-                <td>Active</td>
+                <td>{{task.status}}</td>
             </tr>
             <tr>
                 <td class="label-warning">Created</td>
@@ -24,7 +24,7 @@
             </tr>
         </table>
     </div>
-    <div class="col-lg-9">
+    <div class="col-md-8">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dui augue, porttitor in arcu in, vehicula
             aliquet magna. Mauris ante risus, cursus et urna nec, vehicula iaculis enim. Ut sed eros leo. Quisque
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<div class="col-lg-4">
+<div class="col-md-4">
     <h4>Members</h4>
     <hr/>
     <ul class="list-unstyled">
@@ -45,15 +45,15 @@
     <div class="clearfix"></div>
     <h4>Actions</h4>
     <hr/>
-        <button class="btn btn-success">
+        <button class="btn btn-success" ng-disabled="{{task.done}} && {{!task.dirty}}">
             <span class="glyphicon glyphicon-plus-sign"></span> Add Comment</button>
 
-        <button class="btn btn-danger">
+        <button class="btn btn-danger" ng-disabled="{{task.done}} && {{!task.dirty}}">
             <span class="glyphicon glyphicon-remove-sign"></span> Close Task</button>
     
 </div>
 
-<div class="col-sm-12">
+<div>
     <h4>Comments</h4>
     <hr/>
     <div class="well">

@@ -36,6 +36,7 @@ app.controller('ActiveTasksController', function($scope, TaskService) {
     $scope.new = {};
 
     $scope.addTask = function() {
+        $scope.new.id = TaskService.getNextId();
         TaskService.addTask($scope.new);
         $scope.new = {};
         $scope.tasks = TaskService.getAllActive();
@@ -46,6 +47,9 @@ app.controller('ActiveTasksController', function($scope, TaskService) {
         for (var i=0; i<$scope.tasks.length; i++){
             var task = $scope.tasks[i];
             if (task.dirty){
+                if (task.done){
+                    TaskService.closeTask(task);
+                }
                 task.dirty=false;
                 count++
             }

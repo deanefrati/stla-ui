@@ -23,6 +23,7 @@ app.factory('TaskService', function(){
         id: 1,
         title: 'Pick up groceries',
         priority: factory.priority[0],
+        status: 'Active',
         flagged: false,
         done: false,
         dirty: false
@@ -30,6 +31,7 @@ app.factory('TaskService', function(){
         id: 2,
         title: 'Drop off clothes at dry cleaners',
         priority: factory.priority[2],
+        status: 'Active',
         flagged: false,
         done: false,
         dirty: false
@@ -37,6 +39,7 @@ app.factory('TaskService', function(){
         id: 3,
         title: 'Set alarm for 6am',
         priority: factory.priority[1],
+        status: 'Active',
         flagged: false,
         done: false,
         dirty: false
@@ -44,6 +47,7 @@ app.factory('TaskService', function(){
         id: 4,
         title: 'Take son to practice',
         priority: factory.priority[0],
+        status: 'Active',
         flagged: true,
         done: false,
         dirty: false
@@ -87,6 +91,21 @@ app.factory('TaskService', function(){
     factory.addTask = function(task){
         factory.tasks.push(task);
     };
+
+    factory.closeTask = function(task){
+        task.done=true;
+        task.status='Closed';
+    }
+
+    factory.getNextId = function(){
+        var maxId = 1;
+        for (var i=0; i<factory.tasks.length; i++){
+            if (factory.tasks[i].id > maxId){
+                maxId = factory.tasks[i].id;
+            }
+        }
+        return maxId+1;
+    }
 
     return factory;
 });
